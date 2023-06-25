@@ -9,8 +9,8 @@ font-family: 'Poppins', sans-serif; */
 
   --font-color: #f8f9fa;
   --input-border-color: #a0a0a0;
-  --button-color: #845ef7;
-  --button-hover-color: #9775fa;
+  --button-color: #683fe5;
+  --button-hover-color: #7259be;
 }
 
 * {
@@ -70,6 +70,7 @@ body {
 }
 
 .column form input[type="submit"] {
+  font-family: "Lato", sans-serif;
   background-color: var(--button-color);
   color: var(--font-color);
   height: 36px;
@@ -81,6 +82,11 @@ body {
   margin-bottom: 20px;
   font-size: 16px;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.column form input[type="submit"]:hover {
+  background-color: var(--button-hover-color);
 }
 
 .column .header {
