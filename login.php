@@ -19,44 +19,32 @@ if (isset($_POST["submitButton"])) {
 </head>
 
 <body>
-    
+
     <div class="signInContainer">
 
         <div class="column">
 
             <div class="header">
                 <img src="Assets/images/logo.png" title="Logo" alt="Site logo" />
-                <h3>Sign Up</h3>
-                <span>to continue to Reeceflix</span>
+                <h3>Sign In</h3>
+                <span>to continue to WatchBox</span>
             </div>
 
             <form method="POST">
 
-                <input type="text" name="firstName" placeholder="First name" required>
-
-                <input type="text" name="lastName" placeholder="Last name" required>
-
                 <input type="text" name="username" placeholder="Username" required>
 
-                <input type="email" name="email" placeholder="Email" required>
-
-                <input type="email" name="email2" placeholder="Confirm email" required>
-
                 <input type="password" name="password" placeholder="Password" required>
-
-                <input type="password" name="password2" placeholder="Confirm password" required>
 
                 <input type="submit" name="submitButton" value="SUBMIT">
 
             </form>
 
-            <a href="login.php" class="signInMessage">Already have an account? Sign in here!</a>
+            <a href="register.php" class="signInMessage">Need an account? Sign up here!</a>
 
         </div>
 
     </div>
-
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 <script src = "Assets/js/script.js"></script>
