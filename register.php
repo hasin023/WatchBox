@@ -9,7 +9,7 @@ if (isset($_POST["submitButton"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WatchBox</title>
+    <title>Register</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,9 +25,9 @@ if (isset($_POST["submitButton"])) {
         <div class="column">
 
             <div class="header">
-                <img src="Assets/images/logo.png" title="Logo" alt="Site logo" />
+                <img src="Assets/images/logo-64.png" title="Logo" alt="Site logo" />
                 <h3>Sign Up</h3>
-                <span>to continue to Reeceflix</span>
+                <span>to continue to WatchBox</span>
             </div>
 
             <form method="POST">
