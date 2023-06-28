@@ -16,6 +16,28 @@ class Account
         $this->validateUsername($un);
         $this->validateEmails($em, $em2);
         $this->validatePasswords($pw, $pw2);
+
+        if (empty($this->errorArray)) {
+            return $this->insertUserDetails($fn, $ln, $un, $em, $pw);
+        }
+
+        return false;
+    }
+
+    private function insertUserDetails($fn, $ln, $un, $em, $pw)
+    {
+        $pw = hash("sha512", $pw);
+
+        $query = $this->con->prepare("INSERT INTO users (firstName, lastName, username, email, password)
+                                        VALUES (:fn, :ln, :un, :em, :pw)");
+
+        $query->bindValue(":fn", $fn);
+        $query->bindValue(":ln", $ln);
+        $query->bindValue(":un", $un);
+        $query->bindValue(":em", $em);
+        $query->bindValue(":pw", $pw);
+
+        return $query->execute();
     }
 
     private function validateFirstName($fn)
@@ -73,7 +95,7 @@ class Account
 
     private function validatePasswords($pw, $pw2)
     {
-        if (strlen($pw) < 6 || strlen($pw) > 20) {
+        if (strlen($pw) < 5 || strlen($pw) > 20) {
             array_push($this->errorArray, Constants::$passwordShortError);
             return;
         }
@@ -87,7 +109,7 @@ class Account
     public function getError($error)
     {
         if (in_array($error, $this->errorArray)) {
-            return $error;
+            return "<span class='errorMessage'>$error</span>";
         }
     }
 }

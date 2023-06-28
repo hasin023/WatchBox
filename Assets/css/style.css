@@ -11,6 +11,8 @@ font-family: 'Poppins', sans-serif; */
   --input-border-color: #a0a0a0;
   --button-color: #683fe5;
   --button-hover-color: #7259be;
+
+  --error-message-color: #d22d2d;
 }
 
 * {
@@ -114,4 +116,11 @@ body {
   font-size: 0.875rem;
   font-weight: 400;
   text-decoration: none;
+}
+
+.errorMessage {
+  font-family: "Didact Gothic", sans-serif;
+  color: var(--error-message-color);
+  font-size: 0.9rem;
+  font-weight: 400;
 }
