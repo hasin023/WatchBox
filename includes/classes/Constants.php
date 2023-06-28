@@ -10,6 +10,7 @@ class Constants
     public static $emailTakenError = "Email already taken";
     public static $passwordMatchError = "Passwords do not match";
     public static $passwordShortError = "Password must be at least 6 characters";
+    public static $loginFailedError = "Username or Password is incorrect";
 }
 
 ?>

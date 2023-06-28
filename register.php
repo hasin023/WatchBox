@@ -20,7 +20,7 @@ if (isset($_POST["submitButton"])) {
 
     if ($success) {
         //Store session
-        header("Location: index.php");
+        header("Location: login.php");
     }
 }
 
@@ -57,21 +57,21 @@ if (isset($_POST["submitButton"])) {
 
             <form method="POST">
                 <?php echo $account->getError(Constants::$firstNameError) ?>
-                <input type="text" name="firstName" placeholder="First name" required>
+                <input type="text" spellcheck="false" name="firstName" placeholder="First name" required>
 
                 <?php echo $account->getError(Constants::$lastNameError) ?>
-                <input type="text" name="lastName" placeholder="Last name" required>
+                <input type="text" spellcheck="false" name="lastName" placeholder="Last name" required>
 
                 <?php echo $account->getError(Constants::$usernameError) ?>
                 <?php echo $account->getError(Constants::$usernameTakenError) ?>
-                <input type="text" name="username" placeholder="Username" required>
+                <input type="text" spellcheck="false" name="username" placeholder="Username" required>
 
                 <?php echo $account->getError(Constants::$emailInvalidError) ?>
                 <?php echo $account->getError(Constants::$emailTakenError) ?>
-                <input type="email" name="email" placeholder="Email" required>
+                <input type="email" spellcheck="false" name="email" placeholder="Email" required>
                 
                 <?php echo $account->getError(Constants::$emailMatchError) ?>
-                <input type="email" name="email2" placeholder="Confirm email" required>
+                <input type="email" spellcheck="false" name="email2" placeholder="Confirm email" required>
 
                 <?php echo $account->getError(Constants::$passwordShortError) ?>
                 <input type="password" name="password" placeholder="Password" required>
@@ -79,7 +79,7 @@ if (isset($_POST["submitButton"])) {
                 <?php echo $account->getError(Constants::$passwordMatchError) ?>
                 <input type="password" name="password2" placeholder="Confirm password" required>
 
-                <input type="submit" name="submitButton" value="SUBMIT">
+                <input type="submit" name="submitButton" value="REGISTER">
 
             </form>
 
