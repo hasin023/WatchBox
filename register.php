@@ -16,7 +16,7 @@ if (isset($_POST["submitButton"])) {
     $password = FormSanitizer::sanitizeFormPassword($_POST["password"]);
     $password2 = FormSanitizer::sanitizeFormPassword($_POST["password2"]);
 
-    $account->validateFirstName($firstName);
+    $account->register($firstName, $lastName, $username, $email, $email2, $password, $password2);
 }
 
 
@@ -57,14 +57,21 @@ if (isset($_POST["submitButton"])) {
                 <?php echo $account->getError(Constants::$lastNameError) ?>
                 <input type="text" name="lastName" placeholder="Last name" required>
 
+                <?php echo $account->getError(Constants::$usernameError) ?>
+                <?php echo $account->getError(Constants::$usernameTakenError) ?>
                 <input type="text" name="username" placeholder="Username" required>
 
+                <?php echo $account->getError(Constants::$emailInvalidError) ?>
+                <?php echo $account->getError(Constants::$emailTakenError) ?>
                 <input type="email" name="email" placeholder="Email" required>
-
+                
+                <?php echo $account->getError(Constants::$emailMatchError) ?>
                 <input type="email" name="email2" placeholder="Confirm email" required>
 
+                <?php echo $account->getError(Constants::$passwordShortError) ?>
                 <input type="password" name="password" placeholder="Password" required>
 
+                <?php echo $account->getError(Constants::$passwordMatchError) ?>
                 <input type="password" name="password2" placeholder="Confirm password" required>
 
                 <input type="submit" name="submitButton" value="SUBMIT">

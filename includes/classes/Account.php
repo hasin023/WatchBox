@@ -9,19 +9,80 @@ class Account
         $this->con = $con;
     }
 
-    public function validateFirstName($fn)
+    public function register($fn, $ln, $un, $em, $em2, $pw, $pw2)
+    {
+        $this->validateFirstName($fn);
+        $this->validateLastName($ln);
+        $this->validateUsername($un);
+        $this->validateEmails($em, $em2);
+        $this->validatePasswords($pw, $pw2);
+    }
+
+    private function validateFirstName($fn)
     {
         if (strlen($fn) < 2 || strlen($fn) > 25) {
             array_push($this->errorArray, Constants::$firstNameError);
         }
     }
 
-    public function validateLastName($fn)
+    private function validateLastName($ln)
     {
-        if (strlen($fn) < 2 || strlen($fn) > 25) {
+        if (strlen($ln) < 2 || strlen($ln) > 25) {
             array_push($this->errorArray, Constants::$lastNameError);
         }
     }
+
+    private function validateUsername($un)
+    {
+        if (strlen($un) < 2 || strlen($un) > 25) {
+            array_push($this->errorArray, Constants::$usernameError);
+            return;
+        }
+
+        $query = $this->con->prepare("SELECT * FROM users WHERE username=:un");
+        $query->bindValue(":un", $un);
+
+        $query->execute();
+
+        if ($query->rowCount() != 0) {
+            array_push($this->errorArray, Constants::$usernameTakenError);
+        }
+    }
+
+    private function validateEmails($em, $em2)
+    {
+        if (!filter_var($em, FILTER_VALIDATE_EMAIL)) {
+            array_push($this->errorArray, Constants::$emailInvalidError);
+            return;
+        }
+
+        if ($em != $em2) {
+            array_push($this->errorArray, Constants::$emailMatchError);
+            return;
+        }
+
+        $query = $this->con->prepare("SELECT * FROM users WHERE email=:em");
+        $query->bindValue(":em", $em);
+
+        $query->execute();
+
+        if ($query->rowCount() != 0) {
+            array_push($this->errorArray, Constants::$emailTakenError);
+        }
+    }
+
+    private function validatePasswords($pw, $pw2)
+    {
+        if (strlen($pw) < 6 || strlen($pw) > 20) {
+            array_push($this->errorArray, Constants::$passwordShortError);
+            return;
+        }
+
+        if ($pw != $pw2) {
+            array_push($this->errorArray, Constants::$passwordMatchError);
+        }
+    }
+
 
     public function getError($error)
     {
