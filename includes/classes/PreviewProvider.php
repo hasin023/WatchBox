@@ -9,9 +9,23 @@ class PreviewProvider
         $this->username = $username;
     }
 
-    public function createPreviewVideo()
+    public function createPreviewVideo($entity)
     {
-        echo "Goodbye";
+        if ($entity == null) {
+            $entity = $this->getRandomEntity();
+        }
+
+        echo $entity;
+    }
+
+    private function getRandomEntity()
+    {
+        $query = $this->con->prepare("SELECT * FROM entities ORDER BY RAND() LIMIT 1");
+        $query->execute();
+
+        $row = $query->fetch(PDO::FETCH_ASSOC);
+
+        return $row["name"];
     }
 }
 
