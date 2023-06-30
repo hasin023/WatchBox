@@ -1,6 +1,7 @@
 <?php
 class PreviewProvider
 {
+
     private $con, $username;
 
     public function __construct($con, $username)
@@ -11,22 +12,30 @@ class PreviewProvider
 
     public function createPreviewVideo($entity)
     {
+
         if ($entity == null) {
             $entity = $this->getRandomEntity();
         }
 
-        echo $entity;
+        $id = $entity->getId();
+        $name = $entity->getName();
+        $preview = $entity->getPreview();
+        $thumbnail = $entity->getThumbnail();
+
+        return "$id - $name - $preview - $thumbnail";
+
     }
 
     private function getRandomEntity()
     {
+
         $query = $this->con->prepare("SELECT * FROM entities ORDER BY RAND() LIMIT 1");
         $query->execute();
 
         $row = $query->fetch(PDO::FETCH_ASSOC);
 
-        return $row["name"];
+        return new Entity($this->con, $row);
     }
-}
 
+}
 ?>
