@@ -5,8 +5,6 @@ $preview = new PreviewProvider($con, $userLoggedIn);
 echo $preview->createPreviewVideo(null);
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
