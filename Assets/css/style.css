@@ -157,3 +157,28 @@ body {
   font-weight: 400;
   margin: 1rem 0;
 }
+
+.mainDetails button {
+  background-color: rgba(51, 51, 51, 0.4);
+  color: #fff;
+  border: none;
+  min-width: 9rem;
+  padding: 0 2.2rem;
+  height: 3rem;
+  max-width: 3rem;
+  font-size: 1.1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  margin-right: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+button i {
+  color: inherit;
+}
+
+.mainDetails button:hover {
+  background-color: rgba(230, 230, 230, 0.8);
+  color: #1c1c1c;
+}

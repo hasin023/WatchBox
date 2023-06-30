@@ -22,6 +22,8 @@ class PreviewProvider
         $preview = $entity->getPreview();
         $thumbnail = $entity->getThumbnail();
 
+        //TODO: Add subtitles for the season and episode number
+
         return "<div class = 'previewContainer'>
         
                     <img src='$thumbnail' class='previewImage' hidden>
@@ -34,6 +36,12 @@ class PreviewProvider
 
                         <div class='mainDetails'>
                             <h3>$name</h3>
+
+                            <div class='buttons'>
+                                <button><i class='fa-solid fa-play'></i> Play</button>
+                                <button><i class='fa-solid fa-volume-xmark'></i></button>
+                                <!-- <i class='fa-solid fa-volume'></i> -->
+                            </div>
                         </div>
                     
                     </div>

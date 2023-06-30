@@ -26,6 +26,8 @@ $userLoggedIn = $_SESSION["userLoggedIn"];
     <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Lato:wght@300;400;700&family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" type = "text/css" href="Assets/css/style.css">
+
+    <script src="https://kit.fontawesome.com/6ad84287a9.js" crossorigin="anonymous"></script>
 </head>
 
     <body>
