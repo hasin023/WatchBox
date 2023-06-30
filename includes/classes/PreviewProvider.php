@@ -39,8 +39,7 @@ class PreviewProvider
 
                             <div class='buttons'>
                                 <button><i class='fa-solid fa-play'></i> Play</button>
-                                <button><i class='fa-solid fa-volume-xmark'></i></button>
-                                <!-- <i class='fa-solid fa-volume'></i> -->
+                                <button onclick='volumeToggle(this)'><i class='fa-solid fa-volume-xmark'></i></button>
                             </div>
                         </div>
                     
